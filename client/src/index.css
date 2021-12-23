@@ -11,3 +11,103 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+select.form-control,
+textarea.form-control,
+input.form-control {
+  font-size: 1rem;
+}
+input[type=file] {
+  width: 100%;
+}
+
+.Home .lander {
+  padding: 80px 0;
+  text-align: center;
+  margin: 0px auto;
+  max-width: 320px;
+}
+
+.Home .lander h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+.NotFound {
+  padding-top: 100px;
+}
+
+@media all and (min-width: 480px) {
+  .Signup {
+    padding: 60px 0;
+  }
+
+  .Signup form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .Newprofile {
+    padding: 60px 0;
+  }
+
+  .Newprofile form{
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .home-button {
+    padding: 60px 0;
+    margin: 60px auto;
+    max-width: 320px;
+  }
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 20%;
+  align-self: center;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  
+}
+
+th {
+  background-color: rgb(250, 203, 117);
+}
+
+td {
+  background-color: rgb(239, 253, 205);
+}
+
+
+form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
