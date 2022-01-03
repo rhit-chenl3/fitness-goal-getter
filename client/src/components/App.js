@@ -23,6 +23,7 @@ function App() {
         });
     }, []);
 
+
     return (
         <div className="App container py-3">
             
@@ -44,10 +45,10 @@ function App() {
                     <ProfilePage user={user}/>
                 </Route>
                 <Route exact path="/workout">
-                    <WorkoutPage user={user}/>
+                    <WorkoutPage user={user} />
                 </Route>
                 <Route exact path="/nutrition">
-                    <NutritionPage user={user}/>
+                    <NutritionPage user={user} />
                 </Route>
 
                 <Route>

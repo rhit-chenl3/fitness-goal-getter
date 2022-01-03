@@ -6,7 +6,7 @@ export default function ProfilePage({user}) {
         <div className="Home">
             <div className='lander'>
                 <h2>Welcome to your profile!</h2>
-                <p className="text-muted">Here you can see and update your personal profile information</p>
+                <p className="text-muted">Here you can see and update your personal info</p>
                 <br/>
                 {user ? (
                     <>

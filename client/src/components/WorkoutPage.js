@@ -1,46 +1,89 @@
-import React from 'react'
-import ExerciseCard from './ExerciseCard'
+import React, {useState, useEffect} from "react";
 import ExerciseCollection from './ExerciseCollection'
 import ExerciseSearch from './ExerciseSearch'
+import { Container } from "semantic-ui-react";
 
-export default function WorkoutPage() {
+
+export default function WorkoutPage({user}) {
     const [exerciseList, setExerciseList] = useState([]); // original list DO NOT MODIFY
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoadedMore, setIsLoadedMore] = useState(false);
     const [search, setSearch] = useState("");
     const [filteredExerciseList, setFilteredExerciseList] = useState([]);
+    const [selectedExercise, setSelectedExercise] = useState(null);
+    const [workoutPrograms, setWorkoutPrograms] = useState([]);
+    const [userProgram, setUserProgram] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3001/pokemon")
+        fetch("/exercises")
         .then(resp => resp.json())
         .then(exerciseData => {
             setExerciseList(exerciseData)
             setFilteredExerciseList(exerciseData)
             setIsLoaded(true)
         })
+        fetch("/programs")
+        .then(resp => resp.json())
+        .then(programData => {
+            setWorkoutPrograms(programData)
+            setIsLoadedMore(true)
+        })
+        
     }, [])
 
     const handleSearch = (e) => {
         setSearch(e.target.value)
-        setFilteredExerciseList(exerciseList.filter(exercise => exercise.name.includes(e.target.value)))
+        setFilteredExerciseList(exerciseList.filter(exercise => exercise.name.toLowerCase().includes(e.target.value.toLowerCase())))
     }
 
     const handleSelectExercise = (exercise) => {
+        console.log(exercise)
         setSelectedExercise(exercise)
-      }
+    }
 
-    if (!isLoaded) return <h1> Loading... </h1>;
+    const handleUserProgram = () => {
+        workoutPrograms.forEach(program => {
+            // console.log(program)
+            if(program.name.toLowerCase() === user.profiles[0].fitness_goal.toLowerCase()){
+                setUserProgram(program)
+            }
+        })
+        // console.log(userProgram)
+    }
+
+    if (!isLoaded || !isLoadedMore || !user) return <h1> Loading... </h1>;
 
     return (
-        <Container>
-          <h1>Workout Program</h1>
-          <br />
-          {selectedExercise ? <ExerciseDetail selectedExercise={selectedExercise} /> : null}
-          <br />
-          <h2>Exercise List</h2>
-          <ExerciseSearch search={search} handleSearch={handleSearch}/>
-          <br />
-          <ExerciseCollection exerciseList={filteredExerciseList} handleSelectPokemon={handleSelectPokemon}/>
-          <br />
+        
+        <Container >
+            <h1>Workout Program</h1>
+            {userProgram.name ? (
+                <>
+                    <h4>{userProgram.name}</h4>
+                    <p className="text-muted">
+                        Recommendations <br/>
+                        Frequency: {userProgram.times_per_week} times per week <br/>
+                        Reps: {userProgram.reps}-{userProgram.reps+2} <br/>
+                        Sets: {userProgram.sets-1}-{userProgram.sets} <br/>
+                    </p>
+                </> 
+            ):(
+                <>
+                    <p className="text-muted" onClick={handleUserProgram}>
+                        Click here to show current workout program details
+                    </p>
+                </>
+            )}
+            
+
+            <br />
+            {/* {selectedExercise ? <ExerciseDetail selectedExercise={selectedExercise} /> : null} */}
+            <br />
+            <h3>Exercise List</h3>
+            <ExerciseSearch search={search} handleSearch={handleSearch}/>
+            <br />
+            <ExerciseCollection exerciseList={filteredExerciseList} handleSelectExercise={handleSelectExercise}/>
+            <br />
         </Container>
       );
 }
