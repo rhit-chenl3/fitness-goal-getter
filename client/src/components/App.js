@@ -7,6 +7,9 @@ import NotFound from "./NotFound";
 import { Route, Switch } from "react-router-dom";
 import "../App.css";
 import ProfilePageSetup from "./ProfilePageSetup";
+import ProfilePage from "./ProfilePage";
+import WorkoutPage from "./WorkoutPage";
+import NutritionPage from "./NutritionPage";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -37,7 +40,16 @@ function App() {
                 <Route exact path="/newprofile">
                     <ProfilePageSetup user={user}/>
                 </Route>
-                
+                <Route exact path="/profile">
+                    <ProfilePage user={user}/>
+                </Route>
+                <Route exact path="/workout">
+                    <WorkoutPage user={user}/>
+                </Route>
+                <Route exact path="/nutrition">
+                    <NutritionPage user={user}/>
+                </Route>
+
                 <Route>
                     <NotFound />
                 </Route>

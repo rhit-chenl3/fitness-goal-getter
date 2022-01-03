@@ -10,16 +10,21 @@ export default function HomePage({user}) {
 
     //fetch user profile information
 
+
     return (
         <div className="Home">
             <div className="lander">
-                <h1>FitnessGoalGetter</h1>
+                <h1>FitnessGG</h1>
                 <p className="text-muted">Aim for the stars!</p>
                 {/* user = true => page functionality, false => none */}
                 {user ? (
                     <>
-                        {user.profile ? (
-                            <div>Welcome back, {user.first_name}!</div>
+                        {user.profiles[0] ? (
+                            <div>
+                            Welcome back, {user.first_name}!
+                            <br/> <br/>
+                            <p>FitnessGoalGetter is an app designed to help guide individuals to reach their personal health goals.</p>
+                            </div>
                         ) : (
                             <>
                                 <div>Welcome, {user.username}!</div>
@@ -31,8 +36,9 @@ export default function HomePage({user}) {
                     </>
                     ) : (
                         <div></div>   
-                    )}
+                )}
             </div>
         </div>
+        
     )
 }

@@ -52,7 +52,7 @@ export default function ProfilePageSetup({user}) {
     }
 
     return (
-        <div className="newprofile">
+        <div className="Signup">
             <Form onSubmit={handleSubmit}>
                 
                 <Form.Group size="lg" controlId="age">

@@ -8,8 +8,8 @@ class ProfilesController < ApplicationController
     end
     
     def create
-        puts(@current_user)
-        profile = @current_user.profile.create!(profile_params)
+        # puts(@current_user)
+        profile = @current_user.profiles.create!(profile_params)
         render json: profile, status: :created
     end
     

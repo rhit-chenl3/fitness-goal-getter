@@ -7,21 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "clear old seed data"
-User.destroy_all
-Profile.destroy_all
 Program.destroy_all
-Exercise.destroy_all
-
-User.reset_pk_sequence
-Profile.reset_pk_sequence
 Program.reset_pk_sequence
+
+Exercise.destroy_all
 Exercise.reset_pk_sequence
 
-puts "create admin account"
-admin = User.create(first_name:"admin", last_name:"admin", email:"admin", username:"admin", password:"admin", password_confirmation:"admin")
+Profile.destroy_all
+Profile.reset_pk_sequence
+
+User.destroy_all
+User.reset_pk_sequence
+
 
 puts "create example user account"
 example_user = User.create(first_name:"Leo", last_name:"Chen", email:"chenl3@example.com", username:"chenl3", password:"test", password_confirmation:"test")
+
+# puts "create admin account"
+# admin = User.create(first_name:"admin", last_name:"admin", email:"admin", username:"admin", password:"admin", password_confirmation:"admin")
 
 puts "create profile info for example user account"
 example_profile = Profile.create(age:"22", gender:"Male", height:"176", weight:"70", fitness_goal:"Strength", nutrition_goal:"Calories", user_id:example_user.id)

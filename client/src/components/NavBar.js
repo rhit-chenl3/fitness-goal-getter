@@ -30,6 +30,12 @@ function NavBar({ user, setUser }) {
           <Nav activeKey={window.location.pathname}>
           {user ? (
             <>
+              <LinkContainer to="/nutrition">
+                <Nav.Link>Nutrition</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/workout">
+                <Nav.Link>Workout</Nav.Link>
+              </LinkContainer>
               <LinkContainer to="/profile">
                 <Nav.Link>Profile</Nav.Link>
               </LinkContainer>
