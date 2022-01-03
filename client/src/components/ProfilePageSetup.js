@@ -95,9 +95,9 @@ export default function ProfilePageSetup({user}) {
                 <Form.Label>Fitness Goal</Form.Label>
                 <Form.Control as="select" onChange={(e) => setFitness_goal(e.target.value)}> 
                     <option></option>
-                    <option value="bodyfat">Lose Bodyfat</option>
-                    <option value="strength">Gain Strength</option>
-                    <option value="size">Gain Size</option>
+                    <option value="endurance">Endurance</option>
+                    <option value="strength">Strength</option>
+                    <option value="size">Size</option>
                 </Form.Control>
                 </Form.Group>
 

@@ -72,7 +72,9 @@ exercise_legs_5 = Exercise.create(name:"Leg Extension", target_area:"Legs", img:
 
 
 puts "program database"
-example_program = Program.create(name:"Strength", times_per_week:"4", reps:"10", sets:"3", profile_id:example_profile.id, exercise_id:exercise_chest_1.id)
+example_program = Program.create(name:"Strength", times_per_week:"4", reps:"8", sets:"4", profile_id:example_profile.id, exercise_id:exercise_chest_1.id)
+example_program = Program.create(name:"Size", times_per_week:"4", reps:"6", sets:"4", profile_id:example_profile.id, exercise_id:exercise_chest_1.id)
+example_program = Program.create(name:"Endurance", times_per_week:"4", reps:"10", sets:"4", profile_id:example_profile.id, exercise_id:exercise_chest_1.id)
 
 
 puts "done seeding"
