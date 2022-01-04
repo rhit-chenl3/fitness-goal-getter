@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import ExerciseCollection from './ExerciseCollection'
 import ExerciseSearch from './ExerciseSearch'
 import { Container } from "semantic-ui-react";
+import ExerciseDetail from "./ExerciseDetail";
 
 
 export default function WorkoutPage({user}) {
@@ -54,36 +55,43 @@ export default function WorkoutPage({user}) {
     if (!isLoaded || !isLoadedMore || !user) return <h1> Loading... </h1>;
 
     return (
-        
-        <Container >
-            <h1>Workout Program</h1>
-            {userProgram.name ? (
-                <>
-                    <h4>{userProgram.name}</h4>
-                    <p className="text-muted">
-                        Recommendations <br/>
-                        Frequency: {userProgram.times_per_week} times per week <br/>
-                        Reps: {userProgram.reps}-{userProgram.reps+2} <br/>
-                        Sets: {userProgram.sets-1}-{userProgram.sets} <br/>
-                    </p>
-                </> 
-            ):(
-                <>
-                    <p className="text-muted" onClick={handleUserProgram}>
-                        Click here to show current workout program details
-                    </p>
-                </>
-            )}
-            
+        <div className="">
+            <Container >
+                <h1>Workout Program</h1>
+                {userProgram.name ? (
+                    <>
+                        <h4>{userProgram.name}</h4>
+                        <p className="text-muted">
+                            Recommendations <br/>
+                            Frequency: {userProgram.times_per_week} times per week <br/>
+                            Reps: {userProgram.reps}-{userProgram.reps+2} <br/>
+                            Sets: {userProgram.sets-1}-{userProgram.sets} <br/>
+                            Workout 1: Chest, Triceps, Calves | Workout 2: Back, Biceps, Core | Workout 3: Shoulders, Traps, Calves | Workout 4: Legs, Core
+                        </p>
+                    </> 
+                ):(
+                    <>
+                        <p className="text-muted" onClick={handleUserProgram}>
+                            Click here to show current workout program details
+                        </p>
+                    </>
+                )}
+                
 
-            <br />
-            {/* {selectedExercise ? <ExerciseDetail selectedExercise={selectedExercise} /> : null} */}
-            <br />
-            <h3>Exercise List</h3>
-            <ExerciseSearch search={search} handleSearch={handleSearch}/>
-            <br />
-            <ExerciseCollection exerciseList={filteredExerciseList} handleSelectExercise={handleSelectExercise}/>
-            <br />
-        </Container>
-      );
+                
+                {selectedExercise ? <ExerciseDetail selectedExercise={selectedExercise} /> : null}
+                
+                <h3>Exercise List</h3>
+                <p className="text-muted">
+                    Feel free to click on each exercise card for more info!
+                </p>
+                <ExerciseSearch search={search} handleSearch={handleSearch}/>
+                <br />
+                <ExerciseCollection exerciseList={filteredExerciseList} handleSelectExercise={handleSelectExercise}/>
+                <br />
+            </Container>
+        </div>
+    );
+        
+        
 }

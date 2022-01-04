@@ -7,7 +7,7 @@ export default function ExerciseCard({exerciseCard, handleSelectExercise}) {
             <div >
                 <div className="content" >
                 <div className="image" >
-                <img alt={exerciseCard.target_area} src={exerciseCard.img} width="100px"/>
+                <img alt={exerciseCard.target_area} src={exerciseCard.img} width="90px"/>
                 </div>
 
                 <div className="header">{exerciseCard.name}</div>
