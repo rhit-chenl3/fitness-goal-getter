@@ -27,17 +27,17 @@ example_user = User.create(first_name:"Leo", last_name:"Chen", email:"chenl3@exa
 # admin = User.create(first_name:"admin", last_name:"admin", email:"admin", username:"admin", password:"admin", password_confirmation:"admin")
 
 puts "create profile info for example user account"
-example_profile = Profile.create(age:"22", gender:"Male", height:"176", weight:"70", fitness_goal:"Strength", nutrition_goal:"Calories", user_id:example_user.id)
+example_profile = Profile.create(age:"22", gender:"male", height:"176", weight:"70", fitness_goal:"strength", nutrition_goal:"calories", user_id:example_user.id)
 
 puts "exercise database"
 chest_img_link = "https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/268476679_295356869318751_1679286911571809898_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=FcI3LPNmlvIAX9vvNMW&_nc_ht=scontent-lga3-2.xx&oh=03_AVIJie4UzmpnC7uIlieGd4ilPqFmu8Fi2CSlZK-6VMWDIw&oe=61F73DE4"
-exercise_chest_1 = Exercise.create(name:"Push-Up", target_area:"Chest", img:chest_img_link, video:"")
-exercise_chest_2 = Exercise.create(name:"Dip", target_area:"Chest", img:chest_img_link, video:"")
-exercise_chest_3 = Exercise.create(name:"Bench Press", target_area:"Chest", img:chest_img_link, video:"")
-exercise_chest_4 = Exercise.create(name:"Incline Bench Press", target_area:"Chest", img:chest_img_link, video:"")
-exercise_chest_5 = Exercise.create(name:"Dumbbell Pull-Over", target_area:"Chest", img:chest_img_link, video:"")
-exercise_chest_6 = Exercise.create(name:"Chest Fly", target_area:"Chest", img:chest_img_link, video:"")
-exercise_chest_7 = Exercise.create(name:"Cable Crossover", target_area:"Chest", img:chest_img_link, video:"")
+exercise_chest_1 = Exercise.create(name:"Push-Up", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/0pkjOk0EiAk")
+exercise_chest_2 = Exercise.create(name:"Dip", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/o2qX3Zb5mvg")
+exercise_chest_3 = Exercise.create(name:"Bench Press", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/SCVCLChPQFY")
+exercise_chest_4 = Exercise.create(name:"Incline Bench Press", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/HZ4tKOfFT50")
+exercise_chest_5 = Exercise.create(name:"Dumbbell Pull-Over", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/CmgP3fDguaM")
+exercise_chest_6 = Exercise.create(name:"Chest Fly", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/Z57CtFmRMxA")
+exercise_chest_7 = Exercise.create(name:"Cable Crossover", target_area:"Chest", img:chest_img_link, video:"https://www.youtube.com/embed/taI4XduLpTk")
 
 triceps_img_link = "https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/268522052_1367994240304741_3889065449633628050_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=mX99HaxPekkAX-dsjd_&_nc_ht=scontent-lga3-2.xx&oh=03_AVKNoTouDVUBwxcd8aQVJF7kNdXCx4bWEMkkr3FGQihCMQ&oe=61F88F41"
 exercise_triceps_1 = Exercise.create(name:"Triceps Bar Pressdown", target_area:"Triceps", img:triceps_img_link, video:"")

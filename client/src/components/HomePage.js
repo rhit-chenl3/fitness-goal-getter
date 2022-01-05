@@ -23,7 +23,7 @@ export default function HomePage({user}) {
                             <div>
                             Welcome back, {user.first_name}!
                             <br/> <br/>
-                            <p>FitnessGoalGetter is an app designed to help guide individuals to reach their personal health goals.</p>
+                            <p>FitnessGoalGetter is an app designed to help guide you to reach your personal health goals.</p>
                             </div>
                         ) : (
                             <>

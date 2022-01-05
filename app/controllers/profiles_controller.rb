@@ -4,7 +4,8 @@ class ProfilesController < ApplicationController
     end
 
     def show
-
+        profile = Profile.find_by(id: params[:id])
+        render json: profile
     end
     
     def create
@@ -14,7 +15,9 @@ class ProfilesController < ApplicationController
     end
     
     def update
-
+        profile = Profile.find_by(id: params[:id])
+        profile.update(profile_params)
+        render json: profile, status: :ok
     end
 
     def destroy
@@ -24,6 +27,6 @@ class ProfilesController < ApplicationController
     private
 
     def profile_params
-        params.permit(:age, :gender, :height, :weight, :fitness_goal, :nutrition_goal)
+        params.permit(:age, :gender, :height, :weight, :fitness_goal, :nutrition_goal, :id)
     end
 end

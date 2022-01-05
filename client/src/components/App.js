@@ -24,6 +24,8 @@ function App() {
     }, []);
 
 
+    if (!user) return <h1> </h1>;
+
     return (
         <div className="App container py-3">
             
@@ -42,7 +44,7 @@ function App() {
                     <ProfilePageSetup user={user}/>
                 </Route>
                 <Route exact path="/profile">
-                    <ProfilePage user={user}/>
+                    <ProfilePage user={user} profile={user.profiles[0]}/>
                 </Route>
                 <Route exact path="/workout">
                     <WorkoutPage user={user} />

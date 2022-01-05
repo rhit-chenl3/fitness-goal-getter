@@ -60,7 +60,7 @@ export default function WorkoutPage({user}) {
                 <h1>Workout Program</h1>
                 {userProgram.name ? (
                     <>
-                        <h4>{userProgram.name}</h4>
+                        <h4>{userProgram.name.toUpperCase()}</h4>
                         <p className="text-muted">
                             Recommendations <br/>
                             Frequency: {userProgram.times_per_week} times per week <br/>
