@@ -1,18 +1,35 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
-export default function ProfilePage({user, profile}) {
+export default function ProfilePage({user}) {
     
-    const [age, setAge] = useState(profile.age);
-    const [gender, setGender] = useState(profile.gender);
-    const [height, setHeight] = useState(profile.height);
-    const [weight, setWeight] = useState(profile.weight);
-    const [fitness_goal, setFitness_goal] = useState(profile.fitness_goal);
-    const [nutrition_goal, setNutrition_goal] = useState(profile.nutrition_goal);
+    const [age, setAge] = useState("");
+    const [gender, setGender] = useState("");
+    const [height, setHeight] = useState("");
+    const [weight, setWeight] = useState("");
+    const [fitness_goal, setFitness_goal] = useState("");
+    const [nutrition_goal, setNutrition_goal] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [profile, setProfile] = useState([]);
+
+    useEffect(() => {
+        fetch("/me").then((r) => {
+        if (r.ok) {
+            r.json().then((userData) => {
+                setProfile(userData.profiles[0])
+                setAge(userData.profiles[0].age)
+                setGender(userData.profiles[0].gender)
+                setHeight(userData.profiles[0].height)
+                setWeight(userData.profiles[0].weight)
+                setFitness_goal(userData.profiles[0].fitness_goal)
+                setNutrition_goal(userData.profiles[0].nutrition_goal)
+            });
+        }
+        });
+    }, []);
 
 
     function validateForm() {
@@ -21,7 +38,7 @@ export default function ProfilePage({user, profile}) {
     
     function handleUpdate(e) {
         console.log(age, gender, height, weight, fitness_goal, nutrition_goal)
-        // e.preventDefault();
+        e.preventDefault();
         setErrors([]);
         setIsLoading(true);
         fetch(`/profiles/${profile.id}`, {
@@ -41,17 +58,14 @@ export default function ProfilePage({user, profile}) {
         }).then((r) => {
           setIsLoading(false);
           if (r.ok) {
-            // alert("profile updated!");
+            alert("profile updated!");
           } else {
             r.json().then((err) => setErrors(err.errors));
           }
         });
     }
 
-    if (!user) return <h1> Loading... </h1>;
-
-
-    return (
+    return user ? (
         <>
             <div className="Home">
                 <div className='lander'>
@@ -169,7 +183,7 @@ export default function ProfilePage({user, profile}) {
                                 <div>
 
                                 <br/>
-                                <h5>Your current BMI: {(profile.weight / ((profile.height * 0.01)^2)).toFixed(0)}</h5>
+                                <h5>Your current BMI: {(weight / ((height * 0.01)^2)).toFixed(0)}</h5>
                                 
                                 <p className="text-muted">*Please note that the BMI is not always an accurate indicator of health</p>
                                 <img src="https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/269885323_931586591060761_5927827463391069206_n.png?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=0nFzWryjdJ8AX8GwEcj&tn=J0W_7GHedW-k0UGO&_nc_ht=scontent-lga3-2.xx&oh=03_AVJJVxCVNFULAeM8ey76nMf2KhvUAdLNTXvFkgQ4KtXtLw&oe=61F986FA" alt="BMI_Chart" width="150"/>
@@ -194,5 +208,5 @@ export default function ProfilePage({user, profile}) {
         </>
 
         
-    )
+    ):(<h1> Loading... </h1>)
 }

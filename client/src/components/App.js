@@ -13,18 +13,20 @@ import NutritionPage from "./NutritionPage";
 
 function App() {
     const [user, setUser] = useState(null);
-    
     // auto-login
     useEffect(() => {
         fetch("/me").then((r) => {
         if (r.ok) {
-            r.json().then((user) => setUser(user));
+            r.json().then((userData) => setUser(userData));
         }
         });
     }, []);
 
-
-    if (!user) return <h1> </h1>;
+    function handleUpdateUser(){
+        fetch(`/me`)
+        .then((r) => r.json())
+        .then((userData) => setUser(userData));
+    }
 
     return (
         <div className="App container py-3">
@@ -32,7 +34,7 @@ function App() {
             <NavBar user={user} setUser={setUser}/>
             <Switch>
                 <Route exact path="/">
-                    <HomePage user={user}/>
+                    <HomePage user={user} setUser={setUser}/>
                 </Route>
                 <Route exact path="/login">
                     <LoginPage onLogin={setUser}/>
@@ -41,16 +43,16 @@ function App() {
                     <SignUpPage onLogin={setUser}/>
                 </Route>
                 <Route exact path="/newprofile">
-                    <ProfilePageSetup user={user}/>
+                    <ProfilePageSetup handleUpdateUser={handleUpdateUser}/>
                 </Route>
                 <Route exact path="/profile">
-                    <ProfilePage user={user} profile={user.profiles[0]}/>
+                    <ProfilePage user={user}/>
                 </Route>
                 <Route exact path="/workout">
-                    <WorkoutPage user={user} />
+                    <WorkoutPage user={user}/>
                 </Route>
                 <Route exact path="/nutrition">
-                    <NutritionPage user={user} />
+                    <NutritionPage user={user}/>
                 </Route>
 
                 <Route>

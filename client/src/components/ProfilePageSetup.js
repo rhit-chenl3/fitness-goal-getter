@@ -8,7 +8,7 @@ import Alert from "react-bootstrap/Alert";
 
 
 
-export default function ProfilePageSetup({user}) {
+export default function ProfilePageSetup({handleUpdateUser}) {
     let history = useHistory();
     const [age, setAge] = useState("");
     const [gender, setGender] = useState("");
@@ -39,12 +39,11 @@ export default function ProfilePageSetup({user}) {
             weight: parseInt(weight),
             fitness_goal,
             nutrition_goal,
-            
           }),
         }).then((r) => {
           setIsLoading(false);
           if (r.ok) {
-            r.json().then(history.push("/"));
+            r.json().then(handleUpdateUser).then(history.push("/"));
           } else {
             r.json().then((err) => setErrors(err.errors));
           }

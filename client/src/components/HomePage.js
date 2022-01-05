@@ -3,12 +3,8 @@ import "../index.css";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-
-
 export default function HomePage({user}) {
     let history = useHistory();
-
-    //fetch user profile information
 
 
     return (
