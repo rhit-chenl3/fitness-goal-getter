@@ -150,15 +150,15 @@ export default function ProfilePage({user}) {
                         <Form.Group size="lg" controlId="nutrition_goal">
                         <Form.Label>Nutrition Goal</Form.Label>
                         <Form.Control as="select" onChange={(e) => setNutrition_goal(e.target.value)}>
-                            {profile.nutrition_goal==="calories" ? (
+                            {profile.nutrition_goal==="calorie" ? (
                                 <>
-                                    <option value="calories">Calories</option>
+                                    <option value="calorie">Calorie</option>
                                     <option value="protein">Protein</option>
                                 </>
                             ):(
                                 <>
                                     <option value="protein">Protein</option>
-                                    <option value="calories">Calories</option>
+                                    <option value="calorie">Calorie</option>
                                 </>
                             )}
                         </Form.Control>

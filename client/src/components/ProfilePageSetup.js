@@ -104,7 +104,7 @@ export default function ProfilePageSetup({handleUpdateUser}) {
                 <Form.Label>Nutrition Goal</Form.Label>
                 <Form.Control as="select" onChange={(e) => setNutrition_goal(e.target.value)}> 
                     <option></option>
-                    <option value="calories">Calories</option>
+                    <option value="calorie">Calorie</option>
                     <option value="protein">Protein</option>
                 </Form.Control>
                 </Form.Group>
