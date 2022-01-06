@@ -38,7 +38,7 @@ export default function ProfilePage({user}) {
     
     function handleUpdate(e) {
         console.log(age, gender, height, weight, fitness_goal, nutrition_goal)
-        e.preventDefault();
+        // e.preventDefault();
         setErrors([]);
         setIsLoading(true);
         fetch(`/profiles/${profile.id}`, {
@@ -58,7 +58,7 @@ export default function ProfilePage({user}) {
         }).then((r) => {
           setIsLoading(false);
           if (r.ok) {
-            alert("profile updated!");
+            // alert("profile updated!");
           } else {
             r.json().then((err) => setErrors(err.errors));
           }
