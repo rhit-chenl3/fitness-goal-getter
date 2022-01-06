@@ -52,12 +52,12 @@ export default function WorkoutPage({user}) {
         // console.log(userProgram)
     }
 
-    if (!isLoaded || !isLoadedMore || !user) return <h1> Loading... </h1>;
+    if (!isLoaded || !isLoadedMore || !user) return <h1> Loading...🌱</h1>;
 
     return (
         <div className="">
             <Container >
-                <h1>Workout Program</h1>
+                <h1>🏋️Workout Program</h1>
                 {userProgram.name ? (
                     <>
                         <h4>{userProgram.name.toUpperCase()}</h4>

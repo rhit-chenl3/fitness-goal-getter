@@ -10,8 +10,8 @@ export default function HomePage({user}) {
     return (
         <div className="Home">
             <div className="lander">
-                <h1>FitnessGG</h1>
-                <p className="text-muted">Aim for the stars!</p>
+                <h1>🌱FitnessGG</h1>
+                <p className="text-muted">Aim for the stars!⭐</p>
                 {/* user = true => page functionality, false => none */}
                 {user ? (
                     <>

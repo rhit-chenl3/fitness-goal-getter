@@ -13,11 +13,13 @@ import NutritionPage from "./NutritionPage";
 
 function App() {
     const [user, setUser] = useState(null);
+    // const [isLoaded, setIsLoaded] = useState(false);
     // auto-login
     useEffect(() => {
         fetch("/me").then((r) => {
         if (r.ok) {
             r.json().then((userData) => setUser(userData));
+            // setIsLoaded(true);
         }
         });
     }, []);

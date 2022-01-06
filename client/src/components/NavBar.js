@@ -20,7 +20,7 @@ function NavBar({ user, setUser }) {
       <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
         <LinkContainer to="/">
           <Navbar.Brand className="font-weight-bold text-muted">
-            FitnessGG
+          🌱FitnessGG
           </Navbar.Brand>
         </LinkContainer>
 
@@ -31,15 +31,15 @@ function NavBar({ user, setUser }) {
           {user ? (
             <>
               <LinkContainer to="/nutrition">
-                <Nav.Link>Nutrition</Nav.Link>
+                <Nav.Link>🍎Nutrition</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/workout">
-                <Nav.Link>Workout</Nav.Link>
+                <Nav.Link>💪Workout</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/profile">
-                <Nav.Link>Profile</Nav.Link>
+                <Nav.Link>❤️Profile</Nav.Link>
               </LinkContainer>
-              <Nav.Link onClick={handleLogoutClick}>Logout</Nav.Link>
+              <Nav.Link onClick={handleLogoutClick}>❌Logout</Nav.Link>
             </>
           ) : (
           <>

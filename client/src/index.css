@@ -26,6 +26,7 @@ input[type=file] {
   text-align: center;
   margin: 0px auto;
   max-width: 500px;
+  align-items: center;
 }
 
 .Home .lander h1 {
@@ -33,7 +34,12 @@ input[type=file] {
   font-weight: 600;
 }
 
-
+.nutrition-button {
+  padding: 60px 0;
+  margin: 60px auto;
+  max-width: 180px;
+  align-self: center;
+}
 .column {
   float: left;
   width: 50%;
