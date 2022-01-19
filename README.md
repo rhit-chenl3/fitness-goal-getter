@@ -28,6 +28,7 @@ After installing the Ruby dependencies, install the Node modules by running this
 ```bash
 npm install --prefix client
 ```
+> To run this app locally, PostgreSQL will need to be installed. Please follow the official instructions on [PostgreSQL's site](https://www.postgresql.org/) to install.
 
 Start your local PostgreSQL server. Once running, navigate to the root directory and run these commands to create the database and run the migrations:
 
@@ -35,7 +36,6 @@ Start your local PostgreSQL server. Once running, navigate to the root directory
 rails db:create
 rails db:migrate
 ```
-> To run this app locally, PostgreSQL will need to be installed. Please follow the official instructions on [PostgreSQL's site](https://www.postgresql.org/) to install.
 
 Once all the dependencies are installed, FitnessGG can be started. First ensure that your local PostgreSQL server is running. Then start the backend by navigating to the root directory in your terminal and running this command:
 
