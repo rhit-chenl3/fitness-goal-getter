@@ -1,3 +1,62 @@
+# FitnessGG
+
+## What is FitnessGG?
+
+FitnessGoalGetter is an app designed to help guide you to reach your personal health goals with a variety of workout exercises and nutriontional tracking information as well as recommended calorie and protein intake options to keep you accountable for your daily consumption.
+
+## Technologies
+
+Here are the technologies utilized:
+
+- Frontend
+  - React
+- Backend
+  - Ruby
+  - Rails
+  - PostgreSQL
+
+## Running FitnessGG
+
+This project was built using Ruby version 2.7.4. To install the required gems, navigate to the root directory of this project and run this command:
+
+```bash
+bundle install
+```
+
+After installing the Ruby dependencies, install the Node modules by running this command in the root directory.
+
+```bash
+npm install --prefix client
+```
+> To run this app locally, PostgreSQL will need to be installed. Please follow the official instructions on [PostgreSQL's site](https://www.postgresql.org/) to install.
+
+Start your local PostgreSQL server. Once running, navigate to the root directory and run these commands to create the database and run the migrations:
+
+```bash
+rails db:create
+rails db:migrate
+```
+
+Once all the dependencies are installed, FitnessGG can be started. First ensure that your local PostgreSQL server is running. Then start the backend by navigating to the root directory in your terminal and running this command:
+
+```bash
+rails s
+```
+
+Then the frontend can be started. Navigate to the root directory in another terminal window and run this command:
+
+```bash
+npm start --prefix client
+```
+
+
+### Resources
+Project Base Template: React/Rails API:
+https://github.com/learn-co-curriculum/project-template-react-rails-api
+
+Setup from scratch: React/Rails
+https://github.com/learn-co-curriculum/react-rails-project-setup-guide
+
 # Project Template: React/Rails API
 
 ## Description
