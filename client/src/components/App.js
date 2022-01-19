@@ -11,6 +11,7 @@ import ProfilePage from "./ProfilePage";
 import WorkoutPage from "./WorkoutPage";
 import NutritionPage from "./NutritionPage";
 
+
 function App() {
     const [user, setUser] = useState(null);
     // const [isLoaded, setIsLoaded] = useState(false);
