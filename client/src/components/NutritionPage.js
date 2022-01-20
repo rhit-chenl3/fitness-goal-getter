@@ -77,8 +77,9 @@ export default function NutritionPage({user}) {
                         </p>
                     </>
                 )}
-                <br/>
-                <div>Feel free to search up any food item to see its nutritional value!</div>
+                <p className="text-muted">
+                    Feel free to search up any food item to see its nutritional value!
+                </p>
                 <div className="ui search">
                     <div className="ui icon input" style={{width: "100%"}}>
                         <input className="prompt"  type="text" onChange={handleSearch} value={search}/>
