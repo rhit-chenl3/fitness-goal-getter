@@ -31,7 +31,7 @@ export default function HomePage({user}) {
                         )}
                     </>
                     ) : (
-                        <div></div>   
+                        <div>Please sign up or log in to access app functionality!</div>   
                 )}
             </div>
         </div>
