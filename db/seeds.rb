@@ -22,12 +22,13 @@ User.reset_pk_sequence
 
 puts "create example user account"
 example_user = User.create(first_name:"Leo", last_name:"Chen", email:"chenl3@example.com", username:"chenl3", password:"test", password_confirmation:"test")
-
+guest_user = User.create(first_name:"first_name", last_name:"last_name", email:"guest@example.com", username:"guest", password:"guest", password_confirmation:"guest")
 # puts "create admin account"
 # admin = User.create(first_name:"admin", last_name:"admin", email:"admin", username:"admin", password:"admin", password_confirmation:"admin")
 
 puts "create profile info for example user account"
 example_profile = Profile.create(age:"22", gender:"male", height:"176", weight:"70", fitness_goal:"strength", nutrition_goal:"calorie", user_id:example_user.id)
+guest_profile = Profile.create(age:"22", gender:"male", height:"176", weight:"70", fitness_goal:"strength", nutrition_goal:"calorie", user_id:guest_user.id)
 
 puts "exercise database"
 chest_img_link = "https://scontent-lga3-2.xx.fbcdn.net/v/t1.15752-9/268476679_295356869318751_1679286911571809898_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=FcI3LPNmlvIAX9vvNMW&_nc_ht=scontent-lga3-2.xx&oh=03_AVIJie4UzmpnC7uIlieGd4ilPqFmu8Fi2CSlZK-6VMWDIw&oe=61F73DE4"

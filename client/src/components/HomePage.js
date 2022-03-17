@@ -33,7 +33,7 @@ export default function HomePage({user}) {
                     ) : (
                     <>
                         <div>Please sign up or log in to access app functionality!</div>
-                        <div>Feel free to login using guest credentials (username: chenl3, password: test)</div> 
+                        <div>Feel free to login using guest credentials (username: guest, password: guest)</div> 
                     </>
                           
                 )}
