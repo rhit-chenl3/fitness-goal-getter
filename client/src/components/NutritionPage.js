@@ -12,6 +12,7 @@ export default function NutritionPage({user}) {
     const [intake, setIntake] = useState("");
     const [search, setSearch] = useState("");
     const [searchResults, setSearchResults] = useState(null);
+    const [isSearching, setIsSearching] = useState(false);
 
     const handleNutritionGoal = () => {
         if(nutritionGoal === "protein"){
@@ -41,6 +42,7 @@ export default function NutritionPage({user}) {
 
     const handleRequest = (e) => {
         e.preventDefault();
+        setIsSearching(true);
         fetch("https://api.api-ninjas.com/v1/nutrition?query=" + search, {
             method: "GET",
             headers: {
@@ -50,6 +52,7 @@ export default function NutritionPage({user}) {
         .then(response => response.json())
         .then(data => 
             {
+                setIsSearching(false);
                 console.log(data);
                 setSearchResults(data);
             })
@@ -87,7 +90,7 @@ export default function NutritionPage({user}) {
                     </div>
                 </div>
                 <br/>
-                <Button id="nutrition-button" block size="lg" onClick={handleRequest} >Search!</Button>
+                <Button id="nutrition-button" block size="lg" onClick={handleRequest} >{isSearching ? "Searching..." : "Search!"}</Button>
 
                 {searchResults ? (
                     <>
